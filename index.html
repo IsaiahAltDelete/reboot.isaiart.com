@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart TV Reboot Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            color: #000;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            border: 4px solid #000;
+            padding: 20px;
+            box-shadow: 8px 8px 0 #000;
+            transition: all 0.3s ease;
+        }
+        .container:hover {
+            box-shadow: 12px 12px 0 #000;
+        }
+        h1 {
+            font-size: 2.5em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            background-color: #ff6b6b;
+            color: #fff;
+            padding: 10px;
+            border: 4px solid #000;
+            transition: transform 0.3s ease;
+        }
+        h1:hover {
+            transform: scale(1.02);
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            border: 4px solid #000;
+            background-color: #4ecdc4;
+            color: #000;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        select:hover, select:focus {
+            background-color: #45b7a7;
+            box-shadow: 4px 4px 0 #000;
+        }
+        h2 {
+            font-size: 2em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            background-color: #ffd93d;
+            padding: 10px;
+            border: 4px solid #000;
+            transition: all 0.3s ease;
+        }
+        h2:hover {
+            transform: translateX(5px);
+        }
+        h3 {
+            font-size: 1.5em;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            background-color: #6ec5ff;
+            padding: 5px;
+            border: 2px solid #000;
+            transition: all 0.3s ease;
+        }
+        h3:hover {
+            background-color: #5ab0e6;
+            transform: translateX(5px);
+        }
+        ol {
+            margin-left: 20px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+            background-color: #fff;
+            padding: 5px;
+            border: 2px solid #000;
+            transition: all 0.3s ease;
+        }
+        li:hover {
+            transform: translateX(5px);
+            background-color: #f0f0f0;
+        }
+        .hidden {
+            display: none;
+        }
+        strong {
+            background-color: #6ec5ff;
+            padding: 2px 4px;
+            transition: all 0.3s ease;
+        }
+        strong:hover {
+            background-color: #5ab0e6;
+        }
+        #rebootSteps {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        #rebootSteps.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Smart TV Reboot Guide</h1>
+        <div>
+            <label for="tvBrand">Select your TV brand:</label>
+            <select id="tvBrand">
+                <option value="">-- Select a brand --</option>
+                <option value="android">Android TV (Sony, Nvidia Shield, Hisense)</option>
+                <option value="apple">Apple TV</option>
+                <option value="fire">Fire TV (Amazon)</option>
+                <option value="lg">LG (webOS)</option>
+                <option value="panasonic">Panasonic (My Home Screen)</option>
+                <option value="philips">Philips (SAPHI)</option>
+                <option value="roku">Roku TV (TCL, Hisense, Sharp)</option>
+                <option value="samsung">Samsung (Including Tizen)</option>
+                <option value="vizio">Vizio (SmartCast)</option>
+                <option value="xumo">Xumo TV</option>
+            </select>
+        </div>
+        <div id="rebootSteps" class="hidden">
+            <h2 id="brandTitle"></h2>
+            <div id="steps"></div>
+        </div>
+    </div>
+
+    <script>
+        const rebootSteps = {
+            android: {
+                title: "Android TV (Sony, Nvidia Shield, Hisense)",
+                steps: [
+                    {
+                        title: "Reboot Steps:",
+                        instructions: [
+                            "<strong>Press the Home button</strong> on the remote.",
+                            "Go to <strong>Settings</strong> > <strong>Device Preferences</strong> > <strong>About</strong>.",
+                            "Select <strong>Restart</strong>.",
+                            "Alternatively, <strong>unplug the TV</strong> from the power outlet, <strong>wait 30 seconds</strong>, and <strong>plug it back in</strong>."
+                        ]
+                    }
+                ]
+            },
+            apple: {
+                title: "Apple TV",
+                steps: [
+                    {
+                        title: "Reboot Steps:",
+                        instructions: [
+                            "<strong>Press and hold the Menu and TV/Control Center buttons</strong> until the light on the Apple TV device flashes.",
+                            "<strong>Unplug the Apple TV</strong> from the power outlet.",
+                            "<strong>Wait 30 seconds</strong>.",
+                            "<strong>Plug it back in</strong> and turn it on."
+                        ]
+                    }
+                ]
+            },
+            fire: {
+                title: "Fire TV (Amazon)",
+                steps: [
+                    {
+                        title: "Reboot Steps:",
+                        instructions: [
+                            "<strong>Press the Home button</strong> on the remote.",
+                            "Go to <strong>Settings</strong> > <strong>My Fire TV</strong> > <strong>Restart</strong>.",
+                            "Confirm the restart.",
+                            "Alternatively, <strong>unplug the TV</strong> from the power outlet, <strong>wait 30 seconds</strong>, and <strong>plug it back in</strong>."
+                        ]
+                    }
+                ]
+            },
+            lg: {
+                title: "LG (webOS)",
+                steps: [
+                    {
+                        title: "Reboot Steps:",
+                        instructions: [
+                            "<strong>Press the Settings button</strong> on the remote.",
+                            "Go to <strong>General</strong> > <strong>Restart</strong>.",
+                            "Confirm the restart.",
+                            "Alternatively, <strong>unplug the TV</strong> from the power outlet, <strong>wait 30 seconds</strong>, and <strong>plug it back in</strong>."
+                        ]
+                    }
+                ]
+            },
+            panasonic: {
+                title: "Panasonic (My Home Screen)",
+                steps: [
+                    {
+                        title: "Reboot Steps:",
+                        instructions: [
+                            "<strong>Press the Menu button</strong> on the remote.",
+                            "Go to <strong>Setup</strong> > <strong>System</strong> > <strong>Reset</strong>.",
+                            "Confirm the restart.",
+                            "Alternatively, <strong>unplug the TV</strong> from the power outlet, <strong>wait 30 seconds</strong>, and <strong>plug it back in</strong>."
+                        ]
+                    }
+                ]
+            },
+            philips: {
+                title: "Philips (SAPHI)",
+                steps: [
+                    {
+                        title: "Reboot Steps:",
+                        instructions: [
+                            "<strong>Press the Home button</strong> on the remote.",
+                            "Go to <strong>Settings</strong> > <strong>General Settings</strong> > <strong>Restart TV</strong>.",
+                            "Confirm the restart.",
+                            "Alternatively, <strong>unplug the TV</strong> from the power outlet, <strong>wait 30 seconds</strong>, and <strong>plug it back in</strong>."
+                        ]
+                    }
+                ]
+            },
+            roku: {
+                title: "Roku TV (TCL, Hisense, Sharp)",
+                steps: [
+                    {
+                        title: "Reboot Steps:",
+                        instructions: [
+                            "<strong>Press the Home button</strong> on the remote.",
+                            "Go to <strong>Settings</strong> > <strong>System</strong> > <strong>Power</strong>.",
+                            "Select <strong>System restart</strong> and confirm.",
+                            "Alternatively, <strong>unplug the TV</strong> from the power outlet, <strong>wait 30 seconds</strong>, and <strong>plug it back in</strong>."
+                        ]
+                    }
+                ]
+            },
+            samsung: {
+                title: "Samsung (Including Tizen)",
+                steps: [
+                    {
+                        title: "Soft Reset:",
+                        instructions: [
+                            "<strong>Press the Power button</strong> on the remote to turn off the TV.",
+                            "<strong>Wait 30 seconds</strong>.",
+                            "<strong>Press the Power button again</strong> to turn it back on."
+                        ]
+                    },
+                    {
+                        title: "Power Cycle:",
+                        instructions: [
+                            "<strong>Turn off the TV</strong> using the remote or the TV's power button.",
+                            "<strong>Unplug the TV</strong> from the power outlet.",
+                            "<strong>Wait 60 seconds</strong>.",
+                            "<strong>Press and hold the Power button on the TV</strong> (not the remote) for 30 seconds.",
+                            "<strong>Plug the TV back in</strong> and turn it on."
+                        ]
+                    }
+                ]
+            },
+            vizio: {
+                title: "Vizio (SmartCast)",
+                steps: [
+                    {
+                        title: "Reboot Steps:",
+                        instructions: [
+                            "<strong>Press the Menu button</strong> on the remote.",
+                            "Go to <strong>System</strong> > <strong>Reset & Admin</strong> > <strong>Soft Power Cycle</strong>.",
+                            "Confirm the restart.",
+                            "Alternatively, <strong>unplug the TV</strong> from the power outlet, <strong>wait 30 seconds</strong>, and <strong>plug it back in</strong>."
+                        ]
+                    }
+                ]
+            },
+            xumo: {
+                title: "Xumo TV",
+                steps: [
+                    {
+                        title: "Reboot Steps:",
+                        instructions: [
+                            "<strong>Turn off the TV</strong> using the <strong>Power</strong> button on the remote.",
+                            "<strong>Unplug the TV</strong> from the power outlet.",
+                            "<strong>Wait 30 seconds</strong>.",
+                            "<strong>Plug the TV back in</strong>.",
+                            "<strong>Turn on the TV</strong> using the <strong>Power</strong> button."
+                        ]
+                    }
+                ]
+            }
+        };
+
+        function updateRebootSteps() {
+            const brand = document.getElementById("tvBrand").value;
+            const rebootStepsDiv = document.getElementById("rebootSteps");
+            const brandTitle = document.getElementById("brandTitle");
+            const steps = document.getElementById("steps");
+
+            if (brand && rebootSteps[brand]) {
+                rebootStepsDiv.classList.remove("hidden");
+                setTimeout(() => rebootStepsDiv.classList.add("visible"), 50);
+                brandTitle.textContent = rebootSteps[brand].title;
+                steps.innerHTML = rebootSteps[brand].steps.map((step, index) => `
+                    <h3 class="fade-in" style="animation-delay: ${index * 0.1}s">${step.title}</h3>
+                    <ol>
+                        ${step.instructions.map((instruction, i) => `
+                            <li class="fade-in" style="animation-delay: ${(index * 0.1) + ((i + 1) * 0.1)}s">${instruction}</li>
+                        `).join("")}
+                    </ol>
+                `).join("");
+            } else {
+                rebootStepsDiv.classList.remove("visible");
+                setTimeout(() => rebootStepsDiv.classList.add("hidden"), 500);
+            }
+        }
+
+        document.getElementById("tvBrand").addEventListener("change", updateRebootSteps);
+    </script>
+</body>
+</html>
